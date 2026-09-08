@@ -144,6 +144,8 @@ test('Klaviyo stdio covers 24 tools, latest revision, report/list cursors and pa
 
     const metrics = JSON.parse(textOf(await mcp.call('list_metrics', { account: 'test' })));
     assert.equal(metrics.status, 'succeeded');
+    assert.deepEqual(Object.keys(metrics).sort(), ['operation', 'proof', 'recovery', 'result', 'status', 'summary', 'target', 'warnings'], 'reply contract: all eight keys present');
+    assert.equal(metrics.recovery, null);
     assert.match(metrics.result.text, /2 total/);
 
     const report = JSON.parse(textOf(await mcp.call('campaign_report', {

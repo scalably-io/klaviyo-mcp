@@ -514,7 +514,7 @@ function withReply(definition: KlaviyoToolDefinition): KlaviyoToolDefinition {
           : [],
         recovery: partial
           ? { nextAction: 'Continue with the returned cursor or retry only the failed page/window; preserve successful sections.' }
-          : undefined,
+          : null,
       });
     },
   };
