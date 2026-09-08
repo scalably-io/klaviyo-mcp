@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.scalably/klaviyo-mcp",
+  "title": "Klaviyo MCP",
+  "description": "Klaviyo MCP: campaigns, flows, segments, metrics, reports, profiles across many accounts. 24 tools.",
+  "repository": { "url": "https://github.com/scalably-io/klaviyo-mcp", "source": "github" },
+  "websiteUrl": "https://scalably.io/mcp/klaviyo-mcp",
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@scalably-io/klaviyo-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "KLAVIYO_KEY_MAIN", "description": "Private API key for your main Klaviyo account. Add more accounts with extra KLAVIYO_KEY_<name> variables.", "isRequired": true, "isSecret": true },
+        { "name": "KLAVIYO_API_BASE", "description": "Klaviyo API base URL, default https://a.klaviyo.com/api", "isRequired": false, "isSecret": false },
+        { "name": "KLAVIYO_RETRY_BASE_MS", "description": "Base delay in milliseconds for the retry backoff, default 1000", "isRequired": false, "isSecret": false }
+      ]
+    }
+  ]
+}

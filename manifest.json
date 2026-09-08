@@ -1,0 +1,57 @@
+{
+  "manifest_version": "0.4",
+  "name": "klaviyo-mcp",
+  "display_name": "Klaviyo MCP",
+  "version": "1.0.0",
+  "description": "Klaviyo MCP: campaigns, flows, segments, metrics, reports, profiles across many accounts. 24 tools.",
+  "author": { "name": "Scalably", "email": "hello@scalably.io", "url": "https://scalably.io" },
+  "repository": { "type": "git", "url": "https://github.com/scalably-io/klaviyo-mcp" },
+  "homepage": "https://scalably.io/mcp/klaviyo-mcp",
+  "license": "MIT",
+  "keywords": ["mcp", "scalably", "klaviyo"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "KLAVIYO_KEY_MAIN": "${user_config.klaviyo_key_main}",
+        "KLAVIYO_API_BASE": "${user_config.api_base}",
+        "KLAVIYO_RETRY_BASE_MS": "${user_config.retry_base_ms}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "list_accounts", "description": "List all configured Klaviyo accounts." },
+    { "name": "list_campaigns", "description": "List recent email campaigns for a specific Klaviyo account." },
+    { "name": "campaign_report", "description": "Get email campaign performance metrics for a Klaviyo account." },
+    { "name": "list_metrics", "description": "List available metrics for a Klaviyo account." },
+    { "name": "multi_account_summary", "description": "Pull campaign performance summary from ALL configured Klaviyo accounts." },
+    { "name": "flow_report", "description": "Get email flow (automation) performance for a Klaviyo account." },
+    { "name": "campaign_ab_report", "description": "Get per-variation (A/B arm) email/SMS campaign metrics for a Klaviyo account." },
+    { "name": "flow_series_report", "description": "Time-series flow (automation) metrics for a Klaviyo account." },
+    { "name": "segment_report", "description": "Segment performance metrics for a Klaviyo account." },
+    { "name": "form_report", "description": "Sign-up form performance for a Klaviyo account." },
+    { "name": "list_segments", "description": "List all segments in a Klaviyo account." },
+    { "name": "list_lists", "description": "List all email lists in a Klaviyo account." },
+    { "name": "list_flows", "description": "List all flows (automations) in a Klaviyo account." },
+    { "name": "get_campaign_detail", "description": "Get full details for a single campaign by ID." },
+    { "name": "list_suppressed_profiles", "description": "List profiles suppressed from email marketing for a single reason." },
+    { "name": "metric_aggregate", "description": "Aggregate values for any Klaviyo metric over a custom timeframe and interval." },
+    { "name": "get_template", "description": "Fetch an email template by ID, including HTML/text content." },
+    { "name": "list_recent_events", "description": "List recent events for a Klaviyo account." },
+    { "name": "account_info", "description": "Get Klaviyo account metadata." },
+    { "name": "list_tags", "description": "List all tags in a Klaviyo account." },
+    { "name": "list_templates", "description": "List email templates in a Klaviyo account." },
+    { "name": "get_profile", "description": "Look up a customer profile by email or profile ID." },
+    { "name": "get_flow_detail", "description": "Get a flow's structure by ID." },
+    { "name": "custom_report", "description": "Expert escape hatch: run any Klaviyo values or series report." }
+  ],
+  "user_config": {
+    "klaviyo_key_main": { "type": "string", "title": "Klaviyo API key (main account)", "description": "Private API key for your main Klaviyo account, mapped to KLAVIYO_KEY_MAIN. For multiple accounts, use Claude Code or Codex and add extra KLAVIYO_KEY_<name> environment variables.", "required": true, "sensitive": true },
+    "api_base": { "type": "string", "title": "API base URL", "description": "Override the Klaviyo API base URL", "default": "https://a.klaviyo.com/api", "required": false, "sensitive": false },
+    "retry_base_ms": { "type": "string", "title": "Retry base delay (ms)", "description": "Base delay in milliseconds for the retry backoff", "default": "1000", "required": false, "sensitive": false }
+  },
+  "compatibility": { "claude_desktop": ">=0.10.0", "platforms": ["darwin", "win32", "linux"], "runtimes": { "node": ">=20" } }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@scalably-io/klaviyo-mcp",
+  "version": "1.0.0",
+  "description": "Klaviyo MCP: campaigns, flows, segments, metrics, reports, profiles across many accounts. 24 tools.",
+  "mcpName": "io.scalably/klaviyo-mcp",
+  "type": "module",
+  "license": "MIT",
+  "author": "Scalably <hello@scalably.io>",
+  "homepage": "https://scalably.io/mcp/klaviyo-mcp",
+  "repository": { "type": "git", "url": "git+https://github.com/scalably-io/klaviyo-mcp.git" },
+  "bugs": { "url": "https://github.com/scalably-io/klaviyo-mcp/issues" },
+  "keywords": ["mcp", "model-context-protocol", "scalably", "klaviyo", "email-marketing", "reporting"],
+  "bin": { "scalably-klaviyo-mcp": "dist/index.js" },
+  "files": ["dist"],
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=20" },
+  "scripts": { "build": "tsc", "test": "npm run build && node --test test/*.test.js" },
+  "dependencies": { "fastmcp": "4.20.6", "zod": "4.5.4" },
+  "devDependencies": { "@types/node": "26.5.0", "typescript": "7.0.2" }
+}
