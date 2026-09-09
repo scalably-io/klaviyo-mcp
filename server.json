@@ -3,7 +3,10 @@
   "name": "io.scalably/klaviyo-mcp",
   "title": "Klaviyo MCP",
   "description": "Klaviyo MCP: campaigns, flows, segments, metrics, reports, profiles across many accounts. 24 tools.",
-  "repository": { "url": "https://github.com/scalably-io/klaviyo-mcp", "source": "github" },
+  "repository": {
+    "url": "https://github.com/scalably-io/klaviyo-mcp",
+    "source": "github"
+  },
   "websiteUrl": "https://scalably.io/mcp/klaviyo-mcp",
   "version": "1.0.0",
   "packages": [
@@ -13,12 +16,37 @@
       "identifier": "@scalably-io/klaviyo-mcp",
       "version": "1.0.0",
       "runtimeHint": "npx",
-      "transport": { "type": "stdio" },
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "KLAVIYO_KEY_MAIN", "description": "Private API key for your main Klaviyo account. Add more accounts with extra KLAVIYO_KEY_<name> variables.", "isRequired": true, "isSecret": true },
-        { "name": "KLAVIYO_API_BASE", "description": "Klaviyo API base URL, default https://a.klaviyo.com/api", "isRequired": false, "isSecret": false },
-        { "name": "KLAVIYO_RETRY_BASE_MS", "description": "Base delay in milliseconds for the retry backoff, default 1000", "isRequired": false, "isSecret": false }
+        {
+          "name": "KLAVIYO_KEY_MAIN",
+          "description": "Private API key for your main Klaviyo account. Add more accounts with extra KLAVIYO_KEY_<name> variables.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "KLAVIYO_API_BASE",
+          "description": "Klaviyo API base URL, default https://a.klaviyo.com/api",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "KLAVIYO_RETRY_BASE_MS",
+          "description": "Base delay in milliseconds for the retry backoff, default 1000",
+          "isRequired": false,
+          "isSecret": false
+        }
       ]
+    },
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/scalably-io/klaviyo-mcp/releases/download/v1.0.0/klaviyo-mcp.mcpb",
+      "fileSha256": "447e37231ce6307913808a43ecaa0f4c42ff62ff861b777d2b65389530d0cb68",
+      "transport": {
+        "type": "stdio"
+      }
     }
   ]
 }
