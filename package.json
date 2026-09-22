@@ -16,5 +16,5 @@
   "engines": { "node": ">=20" },
   "scripts": { "build": "tsc", "test": "npm run build && node --test test/*.test.js" },
   "dependencies": { "fastmcp": "4.20.6", "zod": "4.5.4" },
-  "devDependencies": { "@types/node": "26.5.0", "typescript": "7.0.2" }
+  "devDependencies": { "@types/node": "26.6.2", "typescript": "7.0.2" }
 }
